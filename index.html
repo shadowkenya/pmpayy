@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PayHero Integration</title>
+</head>
+<body>
+    <!-- PayHero Payment Container -->
+    <div id="payHero"></div>
+
+    <!-- Include PayHero SDK -->
+    <script src="https://applet.payherokenya.com/cdn/button_sdk.js"></script>
+
+    <!-- Initialize PayHero Payment Widget -->
+    <script>
+        PayHero.init({
+            paymentUrl: "https://app.payhero.co.ke/lipwa/3513",//use your own lipwa link here
+            width: "100%",
+            height: "100%",
+            containerId: "payHero",
+            channelID: 3990,//provide your payment channel ID
+            amount: 1,//provide the amount
+            phone: "",//provide the customer phone
+            reference: "PM Smart World",//provide payment reference here
+            name:"",
+            buttonName: "Pay Now",//provide button text
+            buttonColor: "#00a884", //provide button color
+            successUrl: "https://payherokenya.com/",//url user will be redirected after successfull payment
+            failedUrl: "https://payherokenya.com/"//url user will be redirected after failed payment
+        });
+    </script>
+</body>
+</html>
