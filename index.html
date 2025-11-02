@@ -4,6 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PayHero Integration</title>
+    <style>
+        /* Center container */
+        #payHero {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* full viewport height */
+        }
+
+        /* Glowing effect for the PayHero button */
+        .payhero-button {
+            padding: 15px 40px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+            background-color: #00a884;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 0 10px #00a884, 0 0 20px #00a884, 0 0 40px #00a884;
+            animation: glow 1.5s infinite alternate;
+            transition: transform 0.2s ease;
+        }
+
+        .payhero-button:hover {
+            transform: scale(1.05);
+        }
+
+        @keyframes glow {
+            from {
+                box-shadow: 0 0 5px #00a884, 0 0 10px #00a884, 0 0 20px #00a884;
+            }
+            to {
+                box-shadow: 0 0 20px #00a884, 0 0 40px #00a884, 0 0 60px #00a884;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- PayHero Payment Container -->
@@ -15,19 +52,20 @@
     <!-- Initialize PayHero Payment Widget -->
     <script>
         PayHero.init({
-            paymentUrl: "https://app.payhero.co.ke/lipwa/3513",//use your own lipwa link here
-            width: "100%",
-            height: "100%",
+            paymentUrl: "https://app.payhero.co.ke/lipwa/3513", //your lipwa link
+            width: "200px", // fixed width for button
+            height: "60px", // fixed height for button
             containerId: "payHero",
-            channelID: 3997,//provide your payment channel ID
-            amount: 1,//provide the amount
-            phone: "",//provide the customer phone
-            reference: "PM Smart World",//provide payment reference here
-            name:"",
-            buttonName: "Pay Now",//provide button text
-            buttonColor: "#00a884", //provide button color
-            successUrl: "https://payherokenya.com/",//url user will be redirected after successfull payment
-            failedUrl: "https://payherokenya.com/"//url user will be redirected after failed payment
+            channelID: 3997,
+            amount: 1,
+            phone: "",
+            reference: "PM Smart World",
+            name: "",
+            buttonName: "Pay Now",
+            buttonColor: "#00a884",
+            successUrl: "https://payherokenya.com/",
+            failedUrl: "https://payherokenya.com/",
+            customClass: "payhero-button" // add custom class for glow
         });
     </script>
 </body>
